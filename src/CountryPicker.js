@@ -330,8 +330,8 @@ export default class CountryPicker extends Component {
           <Text style={styles.countryName} allowFontScaling={false}>
             {this.getCountryName(country)}
             {this.props.showCallingCode &&
-            country.callingCode &&
-            <Text>{` (+${country.callingCode})`}</Text>}
+              country.callingCode &&
+              <Text>{` (+${country.callingCode})`}</Text>}
           </Text>
         </View>
       </View>
@@ -353,16 +353,16 @@ export default class CountryPicker extends Component {
     return renderFilter ? (
       renderFilter({ value, onChange, onClose })
     ) : (
-      <TextInput
-        autoFocus={autoFocusFilter}
-        autoCorrect={false}
-        placeholder={filterPlaceholder}
-        placeholderTextColor={filterPlaceholderTextColor}
-        style={[styles.input, !this.props.closeable && styles.inputOnly]}
-        onChangeText={onChange}
-        value={value}
-      />
-    )
+        <TextInput
+          autoFocus={autoFocusFilter}
+          autoCorrect={false}
+          placeholder={filterPlaceholder}
+          placeholderTextColor={filterPlaceholderTextColor}
+          style={[styles.input, !this.props.closeable && styles.inputOnly]}
+          onChangeText={onChange}
+          value={value}
+        />
+      )
   }
 
   render() {
@@ -372,19 +372,20 @@ export default class CountryPicker extends Component {
           disabled={this.props.disabled}
           onPress={() => this.setState({ modalVisible: true })}
           activeOpacity={0.7}
+          style={{ flex: 1 }}
         >
           {this.props.children ? (
             this.props.children
           ) : (
-            <View
-              style={[styles.touchFlag, { marginTop: isEmojiable ? 0 : 5 }]}
-            >
-              {CountryPicker.renderFlag(this.props.cca2,
-                styles.itemCountryFlag,
-                styles.emojiFlag,
-                styles.imgStyle)}
-            </View>
-          )}
+              <View
+                style={[styles.touchFlag, { marginTop: isEmojiable ? 0 : 5 }]}
+              >
+                {CountryPicker.renderFlag(this.props.cca2,
+                  styles.itemCountryFlag,
+                  styles.emojiFlag,
+                  styles.imgStyle)}
+              </View>
+            )}
         </TouchableOpacity>
         <Modal
           transparent={this.props.transparent}
